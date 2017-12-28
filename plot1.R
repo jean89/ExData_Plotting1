@@ -1,6 +1,7 @@
 library(lubridate)
 library(lattice)
 library(sqldf)
+##load selected data
 houseFile <- read.csv.sql("household_power_consumption.txt", sql = 'select * from file where Date ="1/2/2007" or Date = "2/2/2007"', sep= ";")
 houseFile$date_time<- dmy_hms(paste(houseFile$Date,houseFile$Time ))
 houseFile$Global_active_power <- as.numeric(houseFile$Global_active_power)
